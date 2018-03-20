@@ -1607,20 +1607,27 @@
 });
 ;
 //# sourceMappingURL=axios.map
-var urlUsers = 'https://jsonplaceholder.typicode.com/users';
+
 new Vue({
-   el:'#main',
-    created: function () {
-        this.getUsers();
+   el:'#crud',
+    created : function () {
+      this.getKeeps();
     },
-    data:{
-       lists:[]
-    },
-    methods:{
-       getUsers:function () {
-           axios.get(urlUsers).then(response => {
-              this.lists = response.data;
+   data:{
+      keeps:[]
+   },
+   methods:{
+     getKeeps : function () {
+         var urlKeeps = 'task';
+         axios.get(urlKeeps).then(response =>{
+            this.keeps = response.data
+         });
+     },
+       deleteKeep : function (keep) {
+           var url = "task/"+keep.id;
+           axios.delete(url).then(response =>{
+            this.getKeeps();
            });
        }
-    }
+   }
 });

@@ -60,7 +60,9 @@ class TaskController extends Controller
      */
     public function edit($id)
     {
-        //
+        $task = Task::findOrFail($id);
+        // formulario
+        return $task;
     }
 
     /**
@@ -84,6 +86,7 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $task = Task::findOrFail($id);
+        $task->delete();
     }
 }
