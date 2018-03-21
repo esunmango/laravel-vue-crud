@@ -21,7 +21,7 @@
                         <td style="width: 10px;">@{{ keep.id }}</td>
                         <td>@{{ keep.keep }}</td>
                         <td style="width: 10px;">
-                            <a class="btn btn-warning btn-sm">Editar</a>
+                            <a class="btn btn-warning btn-sm" data-toggle="modal" data-target="#create">Editar</a>
                         </td>
                         <td style="width: 10px;">
                             <a class="btn btn-danger btn-sm" v-on:click.prevent="deleteKeep(keep)">Borrar</a>
@@ -29,6 +29,7 @@
                     </tr>
                 </tbody>
             </table>
+            @include('create')
         </div>
         <div class="col-sm-5">
             <pre>
